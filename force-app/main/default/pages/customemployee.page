@@ -1,0 +1,27 @@
+<apex:page standardController="Employee__c" extensions="CustomEmployee">
+    <apex:sectionHeader title="University" subtitle="Student" />
+    
+    <apex:form >
+        <apex:pageBlock title="Basic Information">
+            <apex:pageBlockButtons >  
+                <apex:commandButton value="save" action="{! foobar}"/>
+                <apex:commandButton value="cancel" action="{! foobar}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1" >
+                <apex:pageBlockSectionItem >
+                      <apex:outputLabel >Id</apex:outputLabel>
+                      <apex:inputField value="{!Employee__c.Id__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                      <apex:outputLabel >Name</apex:outputLabel>
+                      <apex:inputField value="{!Employee__c.Id__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                      <apex:outputLabel >Gadget</apex:outputLabel>
+                      <apex:inputField value="{!Employee__c.gadget__c}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

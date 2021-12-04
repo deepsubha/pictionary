@@ -1,0 +1,8 @@
+<apex:page controller="ExecuteBatchController">
+    <apex:slds />
+
+    <apex:form >
+        
+        <apex:commandButton value="invoke" action="{! handleBacth }"/>
+    </apex:form>
+</apex:page>

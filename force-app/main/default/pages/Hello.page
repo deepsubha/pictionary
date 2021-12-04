@@ -1,0 +1,7 @@
+<apex:page controller="MyClass">
+    
+     {! message}
+     <apex:form >
+     	<apex:commandButton value="Invoke" action="{! foobar}"/>
+     </apex:form>
+</apex:page>

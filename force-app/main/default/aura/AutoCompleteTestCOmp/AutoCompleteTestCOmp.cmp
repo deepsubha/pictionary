@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global">
+    <lightning:card title="Opportunity Search" >
+    <c:AutoComplete aura:id="opp-record" label="Opportunity" objectApiName="Opportunity" idFieldApiName="Id" valueFieldApiName="Name" 
+                    extendedWhereClause="AND Amount>1000"/>
+    </lightning:card>
+    <!--<lightning:card title="Account Search">
+    <c:AutoComplete aura:id="account-records" label="Account" objectApiName="Account" idFieldApiName="Id" valueFieldApiName="Name" />
+    </lightning:card>-->
+</aura:component>

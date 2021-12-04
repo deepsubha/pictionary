@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <h2 style="color:blue">This is Jira Host Component</h2>
+        <lightning-input type="text" label="Enter issue Id/ Key" onchange={getId}></lightning-input>
+        <lightning-button onclick={getIssue} label='Click'></lightning-button>
+        <br><br><br>
+        {result}
+    </lightning-card>
+</template>

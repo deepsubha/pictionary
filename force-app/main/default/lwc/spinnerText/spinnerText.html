@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Demo Spinner">
+        <lightning-button label="spinner1" onclick={spinnerOneHandler} name="showOne"></lightning-button>
+        <p>Hello there!</p>
+        <p>Hello there!</p>
+        <p>Hello there!</p>
+        <p>Hello there!</p>
+        <p>Hello there!</p>
+        <template if:true={showSpinner}>
+            <c-lightning-loader text="fetching data..." size="small"></c-lightning-loader>
+        </template>
+    </lightning-card>
+    
+</template>

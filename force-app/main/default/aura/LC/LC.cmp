@@ -1,0 +1,19 @@
+<aura:component >
+    
+     <aura:attribute name="nm" type="String" default="Maiti,Subhadeep"/>
+    
+    
+      	<h1>hello world!!</h1>
+    <h2>Colours</h2>
+          <div>
+    <div class="red">Red</div><div class="blue">Blue</div><div class="green">Green</div>
+    </div>
+       
+    <div>
+    <lightning:layoutItem size="10" class="right-align">
+        <lightning:button label="click"/>    
+    </lightning:layoutItem>
+    </div>
+    <p>&copy; {!v.nm}</p>
+ 
+</aura:component>

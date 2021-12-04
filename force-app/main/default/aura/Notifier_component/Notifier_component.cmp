@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                            access="global">
+    <aura:registerEvent name="family_update_event" type="c:Family_Event"/>
+    
+    <h1>This is Notifier Component</h1>
+    <lightning:button label="Update" onclick="{!c.updating}"/>
+    
+</aura:component>

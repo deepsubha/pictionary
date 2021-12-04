@@ -1,0 +1,27 @@
+<template>
+    <h2>For adding new words and showing them!!</h2>
+
+        <lightning-layout>
+            <lightning-layout-item padding="around-small">  
+                <div style="width: 200px;">
+                    <lightning-input name="answer" placeholder="add new word to list" variant="label-hidden" onchange={handleChange}></lightning-input>     
+                </div>                  
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">    
+                <lightning-button label="Submit" variant="brand" onclick={handleSave}></lightning-button>   
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <div class="slds-m-around_medium">
+            <template if:true={allWords.data}>
+                <template for:each={allWords.data} for:item="allWord">
+                    <p style="text-align: left;" key={allWord.Id}>{allWord.Name__c}</p>
+                </template>
+            </template>
+            <template if:true={error}>
+                <!--<c-error-panel errors={error}></c-error-panel>-->
+            </template>
+        </div>
+
+    
+</template>

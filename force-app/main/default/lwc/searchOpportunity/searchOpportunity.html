@@ -1,0 +1,110 @@
+<template>
+   <div class="slds-m-around_medium">
+   <lightning-card title="Search Panel">
+   
+      <p slot="actions">
+      <lightning-button variant="destructive" label="Clear"  onclick={clearData} class="slds-m-left_x-small"></lightning-button>
+      
+      <!--<lightning-input type="toggle"   checked="" class="slds-m-left_x-small"></lightning-input>-->
+      </p>
+      
+   
+    <template if:true={isminimized}>
+    <div class="slds-m-around_medium">
+      <!--<input id="input" name="input" list="countries" class="slds-input" type="text" />-->
+      
+    <div class="slds-grid slds-no-flex">
+
+      <template if:false={isCloseDate}>
+            <div class="slds-m-bottom_small slds-col slds-size_10-of-12">
+               
+               <lightning-input type="search"
+                  
+                  value={searchValue}
+                  label="Opportunity Search"
+                  onchange={searchKeyword}
+                  ></lightning-input>    
+                  <!--<input id="input" name="input" list="countries" title="Opportunity Search" type="text" value={searchValue}
+                         class="slds-input" onchange={searchKeyword} />-->
+            </div> &nbsp;
+            
+            <div class="slds-col slds-size_2-of-12">
+            <lightning-combobox
+            name="Filter"
+            label="Search Filter"
+            value={value}
+            placeholder="--None--"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+            </div>
+        </template>
+
+        <template if:true={isCloseDate}>
+            <div class="slds-m-bottom_small slds-col slds-size_8-of-12">
+               <lightning-input type="search"
+                  value={searchValue}
+                  label="Opportunity Search"
+                  onchange={searchKeyword}
+                  ></lightning-input>
+            </div> &nbsp;
+            
+            <div class="slds-col slds-size_2-of-12">
+            <lightning-combobox
+            name="progress"
+            label="Search Filter"
+            value={value}
+            placeholder="--None--"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+            </div>  &nbsp;
+            <div class="slds-col slds-size_2-of-12">
+               <lightning-input type="date" name="CloseDate" onchange={dateChange} label="Close Date" value="2020-01-01" min="2020-01-01" max="2020-12-31" >              
+               </lightning-input>
+            </div>
+         </template>
+
+
+       </div>
+
+       <div class="suggessions">
+         <template for:each={allOpps} for:item="opp">
+            <div key={allOpps.Id}>
+            <div onclick = {getSuggestionsValue} data-option-value={opp.Name}>{opp.Name}</div>
+           </div>
+         </template>
+      </div>
+       
+       <lightning-button label="Search"
+          onclick={handleSearchKeyword}
+          variant="brand"></lightning-button>
+                     
+    </div> 
+   </template>
+
+    <p slot="footer" style="text-align: right;">
+     <a selected={isminimized}
+      onclick={handleClick}> {isMaximized}</a>
+    </p>
+
+    <template if:true={showSpinner}>
+      <c-lightning-loader text={spinnerTitle} size={size}></c-lightning-loader>
+   </template>
+
+   </lightning-card>  
+   </div>
+
+   <div class="slds-m-around_medium">
+      <!--
+      <template if:true={showSpinner}>
+         <c-lightning-loader text="fetching data..." size="small"></c-lightning-loader>
+     </template>-->
+   <c-search-opportunity-result allopportunities={OpportunityRecord}
+                                    totalrecountcount={totalRecountCount}
+                                    totalpage={totalPage}
+                                    firstdata ={firstChunk}
+                                    targetid = ''
+                                    disablenextbutton={disablenextbutton}
+      
+                                    disablepreviousbutton={disablepreviousbutton}></c-search-opportunity-result>
+   </div>
+ </template>

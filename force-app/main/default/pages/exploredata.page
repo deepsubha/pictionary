@@ -1,0 +1,28 @@
+<apex:page controller="CustomEmployeeClass" action="{! foobar}">
+    <apex:sectionHeader title="Employee" subtitle="employee details" />
+     
+    <apex:pageBlock title="basic informations">
+    	<apex:pageBlockTable value="{! account}" var="acc">
+        	<apex:column value="{! acc.Name}"/>
+            <apex:column value="{! acc.Id}"/>
+            <apex:column value="{! acc.Rating}"/>
+            <apex:column value="{! acc.Industry}"/>
+        </apex:pageBlockTable>
+        
+        <apex:dataTable value="{! account}" var="acc">
+        	<apex:column value="{! acc.Name}"/>
+            <apex:column value="{! acc.Id}"/>
+            <apex:column value="{! acc.Rating}"/>
+            <apex:column value="{! acc.Industry}"/>
+        </apex:dataTable>
+        
+        <apex:dataList value="{! account}" var="acc">
+        	<apex:outputText value="{! acc.Name}"/>
+            <apex:outputText value="{! acc.Id}"/>
+            <apex:outputText value="{! acc.Rating}"/>
+            <apex:outputText value="{! acc.Industry}"/>
+        </apex:dataList>
+        
+    </apex:pageBlock>
+    
+</apex:page>

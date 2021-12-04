@@ -1,0 +1,12 @@
+<apex:page standardController="Employee__c" extensions="gadgetExtentions">
+
+    {! Employee__c.Name }
+    <apex:form >
+     <!--   <apex:inputText value="{! greet }"/>  -->
+        
+        <apex:commandButton value="get" action="{! foobar}"/>
+        
+    </apex:form>
+
+    {! s}
+</apex:page>

@@ -1,0 +1,9 @@
+<template>
+    <template if:true={word}>
+        <lightning-card  title="Random Word">
+            <lightning-button label="Draw" slot="actions"></lightning-button>
+            <p id="wordId" class="slds-p-horizontal_small" style="font-size: 40px; display:block;">" {word} "</p>
+            <p slot="footer" style="text-align: left;"><lightning-button label="Refresh" variant="base"></lightning-button></p>
+        </lightning-card>
+    </template>
+</template>

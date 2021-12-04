@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" >
+    <aura:attribute name="family_update" type="String"/>
+    <aura:attribute name="DaTe" type="String"/>
+</aura:event>

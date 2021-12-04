@@ -1,0 +1,19 @@
+<apex:page controller="EmailSend">
+    <apex:pageBlock title="Send Email to the related contacts of an account: {!acc.Name}">
+        <p>This is a visualforce page for sending email with attachment in a pdf format.</p>
+    	<apex:pageBlockTable value="{!acc.contacts}" var="c">
+            <apex:column headerValue="Name">{!c.Name}</apex:column>
+            <apex:column headerValue="Email">{!c.Email}</apex:column>
+        </apex:pageBlockTable><br/><br/><br/>
+        
+        <apex:form >
+            <apex:outputLabel for="Subject" value="Subject">:<br/></apex:outputLabel>
+        	<apex:inputText size="80" maxlength="80" id="Subject" value="{!eSub}"/><br/><br/>
+            <apex:outputLabel for="Body" value="Body">:<br/></apex:outputLabel>
+            <apex:inputTextarea id="Body" rows="8" cols="80" value="{!eBody}"/><br/><br/>
+            
+            <apex:commandButton title="send" value="send" action="{!sendMail}" />
+        </apex:form>
+    </apex:pageBlock>
+    
+</apex:page>

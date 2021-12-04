@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                            access="global">
+	<aura:attribute name="family_update_message" type="String"/>
+    <aura:attribute name="onDate" type="String"/>
+    <aura:handler event="c:Family_Event" action="{!c.handledEvent}"/>
+    
+    
+    <hr></hr><h1>I am his Father</h1>
+    <h3>{!v.family_update_message}</h3>
+    <h3>Events Occurs on : {!v.onDate}</h3>
+</aura:component>

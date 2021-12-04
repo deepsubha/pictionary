@@ -1,0 +1,83 @@
+<template>
+   
+    <template if:true={firstdata}>
+    <lightning-card title="Search Opportunity Results">
+   
+    <p slot="actions">
+      <lightning-combobox
+      name="PageSize"
+      label=""
+      value={value}
+      placeholder="5"
+      options={options}
+      onchange={handleChange} ></lightning-combobox>
+    </p>
+   
+    <p style="text-align: center;" class="slds-p-horizontal_small">
+      <c-paginator disablepreviousbutton={disablepreviousbutton} disablenextbutton={disablenextbutton}
+      onprevious={previousHandler} onnext={nextHandler}></c-paginator>
+    </p>
+    <p slot="footer">
+      <c-paginator disablepreviousbutton={disablepreviousbutton} disablenextbutton={disablenextbutton}
+      onprevious={previousHandler} onnext={nextHandler}></c-paginator>
+    </p>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-top_small">
+        <thead>
+           <tr class="slds-line-height_reset">
+              
+              <th class="" scope="col">
+                 <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+              </th>
+              <th class="" scope="col">
+                  <div class="slds-truncate" title="Account Name">Account Name</div>
+               </th>
+              <th class="" scope="col">
+                 <div class="slds-truncate" title="Amount">Amount</div>
+              </th>
+              <th class="" scope="col">
+                 <div class="slds-truncate" title="Type">Type</div>
+              </th>
+              <th class="" scope="col">
+                  <div class="slds-truncate" title="Stage Name">Stage Name</div>
+              </th>
+              <th class="" scope="col">
+               <div class="slds-truncate" title="Stage Name">&nbsp;&nbsp;Action</div>
+           </th>
+           </tr>
+        </thead>
+        
+        <tbody>   
+           <template for:each={firstdata} for:item="opp">
+              <tr class="slds-hint-parent" key={opp.Id}>             
+                 <td>
+                  <a href={opp.oppLink} target="_blank">{opp.Name}</a>
+                    <!--<div class="slds-truncate">{opp.Name}</div>-->
+                 </td>
+                 <td>
+                  <a href={opp.accLink} target="_blank">{opp.Account.Name}</a>
+                  <!--<div class="slds-truncate">{opp.Account.Name}</div>-->
+                 </td>
+                 <td>
+                  <div class="slds-truncate" >{opp.Amount}</div>
+                 </td>
+                 <td>
+                  <div class="slds-truncate">{opp.Type}</div>
+                 </td>
+                 <td>
+                  <div class="slds-truncate">{opp.StageName}</div>
+                 </td>
+                 <td>
+                  <div class="slds-truncate">
+                     <lightning-button class="slds-m-left_x-small" variant="success" label="Send Mail" onclick={sendMail} 
+                     data-id={opp.Id}></lightning-button>
+                  </div>
+                 </td>
+              </tr>
+           </template>
+        </tbody>
+     </table>
+     </lightning-card>
+     <c-send-mail targetid={targetid}></c-send-mail>
+    </template>
+    
+</template>

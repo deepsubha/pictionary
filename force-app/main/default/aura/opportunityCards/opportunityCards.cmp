@@ -1,0 +1,54 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+    access="global" controller="OpportunityCardController">
+
+    <c:searchOpportunity onvaluechange="{!c.getValueFromLwc}"/>
+    <aura:attribute name="isCloseDate" type="Boolean"/>
+    <aura:attribute name="isAllSent" type="Boolean"/>
+    <aura:attribute name="inputValue" type="String"/>
+    <aura:attribute name="titleLine" type="String"/>
+    <aura:attribute name="Opportunities" type="List" />
+    <aura:attribute name="columns" type="List"/>
+    
+    <div class="slds-m-around_medium"> 
+        <aura:if isTrue="{!v.isCloseDate}">
+        <lightning:tabset variant="scoped">
+            <lightning:tab label="Opportunity">
+                <lightning:card title="{!v.titleLine}"><br/>
+                <aura:set attribute="actions">
+                    <lightning:button variant="brand" label="Send All" disabled="{!v.isAllSent}" onclick="{!c.sendAllOpportunities}" class="slds-m-left_x-small"></lightning:button>
+                </aura:set>
+                <div style="max-height: 300px">
+                    <lightning:datatable
+                            keyField="id"
+                            data="{! v.Opportunities }"
+                            columns="{! v.columns }"
+                            hideCheckboxColumn="true"
+                            onrowaction="{!c.handleRowActions}"/>
+                </div>
+                </lightning:card>
+            </lightning:tab>
+            <lightning:tab label="Bar Chart">
+                <div class="slds-grid slds-no-flex">
+
+                <div class="slds-m-bottom_small slds-col slds-size_6-of-12">
+                    <lightning:card title="Reminder Sent by Mail" iconName="utility:chart"> 
+                        <c:opportunityChart filterData="Mail_Sent__c"
+                                            type = "bar"
+                        />
+                    </lightning:card>
+                </div>&nbsp;&nbsp;
+                <div class="slds-m-bottom_small slds-col slds-size_6-of-12">
+                    <lightning:card title="Integration with GoogleSheet" iconName="utility:chart"> 
+                        <c:opportunityChart filterData="GoogleSheet_Integration__c"
+                                            type = "pie"
+                        />
+                    </lightning:card>
+                </div>
+
+                </div>
+            </lightning:tab>
+        </lightning:tabset>
+        </aura:if>
+    </div>
+
+</aura:component>

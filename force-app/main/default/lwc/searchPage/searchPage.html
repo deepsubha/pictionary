@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Search Account" icon-name="custom:custom57">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange = {handleKeyChange} class="slds-m-buttom_small" label="search by name">
+            </lightning-input>
+
+            <template if:true={accounts}>
+                <template for:each={accounts} for:item="acc">
+                    <c-search-result key={acc.id} account={acc}>
+                    </c-search-result>
+                </template>
+            </template>
+
+        </div>
+
+    </lightning-card>
+    
+</template>

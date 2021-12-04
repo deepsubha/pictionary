@@ -1,0 +1,13 @@
+<aura:component >
+    <!--  <c:LightningEventsComp1/>   this is directly calling parent to child  -->
+    <aura:attribute name="totalIncome" type="decimal" default="0"></aura:attribute> 
+    <aura:handler name="totalIncomeComponentEvent" event="c:LightningComponentEvent" action="{!c.handleTotalIncomeComponentEvent}" phase="capture"></aura:handler>
+	Outer Component
+    <div class="innerComponent">
+    	Inner Component Section Begins
+        <c:LightningEventsComp1/>
+        Inner Component Section Ends
+    </div>
+    
+    <span class="totalIncome" >totalIncome = {!v.totalIncome}</span>
+</aura:component>

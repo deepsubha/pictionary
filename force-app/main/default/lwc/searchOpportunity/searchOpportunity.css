@@ -1,0 +1,26 @@
+.hide{
+    display: none;
+}
+.show{
+    color: beige;
+}
+.pos{
+    position: relative;
+    left: 80px;
+}
+.suggessions{
+    padding-left: 10px;
+    padding-right: 200px;
+    
+}
+.suggessions > div{
+    padding : 5px;
+    font-size: 15px;
+    color: black;
+    border-top: 1px solid;
+    cursor:pointer;
+    
+}
+.suggessions > div:hover{
+    background-color:#999;
+}

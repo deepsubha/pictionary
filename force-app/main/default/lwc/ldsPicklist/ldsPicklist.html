@@ -1,0 +1,28 @@
+<!--
+    @description       : 
+    @author            : Amit Singh
+    @group             : 
+    @last modified on  : 02-02-2021
+    @last modified by  : Amit Singh
+    Modifications Log 
+    Ver   Date         Author       Modification
+    1.0   02-02-2021   Amit Singh   Initial Version
+-->
+<template>
+    <lightning-card variant="Narrow" title="Mulit Select ComboBox" icon-name="custom:custom43">
+        <div class="slds-p-horizontal_small">
+            <!--<c-multi-select-picklists-lwc 
+                if:true={picklistValues} 
+                options={picklistValues}
+                onvaluechange={handleValueChange} 
+                label="Industry">
+            </c-multi-select-picklists-lwc>-->
+            <c-multi-select-picklist-lwc
+            if:true={picklistValues} 
+                options={picklistValues}
+                onvaluechange={handleValueChange} 
+                label="Industry"
+                ></c-multi-select-picklist-lwc>
+        </div>
+    </lightning-card>
+</template>

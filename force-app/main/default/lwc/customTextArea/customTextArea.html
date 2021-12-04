@@ -1,0 +1,9 @@
+<template>
+            <br/>
+            <template if:true={commentator}>
+                <h2 style="font-size: 20px;">Commentator: {commentator}</h2><br/>
+                <!--<textarea oninput={onInput} name={cardId}>{comments}</textarea>-->
+								<lightning-textarea oninput={onInput} name={cardId} value={comments}></lightning-textarea>
+            </template><br/>
+ 
+</template>

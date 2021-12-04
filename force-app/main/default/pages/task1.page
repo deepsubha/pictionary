@@ -1,0 +1,15 @@
+<apex:page standardController="Account" extensions="Task1OnAccount" >
+    hey there
+    <apex:form >
+    	<apex:commandButton value="get" action="{! foobar}"/>
+    </apex:form>
+    <apex:dataTable value="{! allAccounts}" var="e">
+        <apex:column value="{! e.Name}"/> 
+        <apex:column value="{! e.Id}"/>
+        <apex:repeat value="{! e.Contacts}" var="c">
+            <apex:column value="{! c.Id}"/> 
+            <apex:column value="{! c.FirstName}"/> 
+            <apex:column value="{! c.LastName}"/> 
+        </apex:repeat>
+    </apex:dataTable> 
+</apex:page>

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="">
+        <h1 style="font-size: 30px; background-color: bisque; text-align: center;">All Teams</h1><br/><br/><br/>
+
+        <div class="slds-grid slds-gutters">
+        <div class="slds-col"><span></span></div>  
+        <template for:each={teamsInfo.data} for:item="team">
+            <div key={team.Id}>        
+                    <div class="slds-col">
+                    <span>
+                        <c-team name={team.Name}></c-team>
+                        <c-custom-text-area card-id={team.Id} name={team.Captain__c} commentator={team.Commentators__c}
+                                    notes={team.Captain_Notes__c} comments={team.Comments__c} onchange={handleChange}
+                                    data-text-id={team.Id} data-captain-id={team.Captain__c} data-commentator-id={team.Commentators__c}
+                        ></c-custom-text-area>
+                        <div><lightning-button variant="success" label="Save" title="" onclick={handleSave} 
+                        class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Clear" title="" onclick={handleClear} 
+                        class="slds-m-left_x-small"></lightning-button></div><br/>
+                    </span>
+                    </div>
+            </div>           
+        </template>
+        <div class="slds-col"><span></span></div>
+        </div>
+    </lightning-card>
+</template>

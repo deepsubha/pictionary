@@ -1,0 +1,31 @@
+<apex:page standardController="Account" recordSetVar="acc" renderAs="pdf">
+    <apex:form >
+    	<h1 style="font-size:17px;">Pdf Generator Example</h1>
+        <p style="font-family:Arial;color:blue;">This is the example of a pdf generator of Account records and its related records.</p>
+        <body>
+            <div>
+            <table style="width:100%;">
+                <tbody style="display:table-row-group;vertical-align:middle;">
+                <tr style="display:table-row;background-color:#a6e5a8;">
+                    <th style="font-size:1em;text-align:left;padding-left:10px;padding-right:10px;">Company Name</th>
+                    <th style="font-size:1em;text-align:left;padding-left:10px;padding-right:10px;">Contact Number</th>
+                    <th style="font-size:1em;text-align:left;padding-left:10px;padding-right:10px;">Contact Type</th>
+                </tr>
+                    <apex:repeat value="{!acc}" var="a">
+                        <tr>
+                        	<td style="font-size:1em;border:1px solid;text-align:left;padding-left:15px;padding-right:15px;">{!a.Name}</td>
+                            <td style="font-size:1em;;border:1px solid;text-align:left;padding-left:15px;padding-right:15px;">{!a.Phone}</td>
+                            <td style="font-size:1em;;border:1px solid;text-align:left;padding-left:15px;padding-right:15px;">{!a.Type}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+            </div>
+            
+            <div style="padding-top:100px;">
+                <h4 style="color:#7a73e5;">Thanking You for being our partners.</h4>
+                <h3 style="color:#6ace68;">Subhadeep Maiti.<br/>Account Manager.<br/>Salesforce Corp.</h3>
+            </div>
+        </body>
+    </apex:form>
+</apex:page>

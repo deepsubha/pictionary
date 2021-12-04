@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,
+                            force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                            access="global"
+                            controller="DG_DataController">
+    <aura:attribute name="word" type="string" default=""/>
+    <center>
+        <div style="padding: 20px;">
+            <lightning:button class="showBtn" title="Explore" label="Get The Word" variant="brand" onclick="{!c.selectWord}"/>
+        </div>
+
+        <div style="padding: 20px;">
+            <c:dG_showMeTheWord word="{!v.word}"/>
+        </div>
+
+        <div style="padding: 20px;">
+            <c:dG_submitTheWord/>
+        </div>
+
+        <div style="padding: 20px;">
+            <c:dG_scoreCards/>
+        </div>
+    </center> 
+</aura:component> 

@@ -1,0 +1,32 @@
+<apex:page standardController="Employee__c" extensions="employeeExtentions">
+ {! employeeList}
+ <apex:form >  
+    <apex:commandButton value="get" action="{! foobar}"/>
+</apex:form>
+
+<table width="10%,70%,10%,10%">
+<thead>
+<tr width="10%,70%,10%,10%">
+<td>NAME</td><td>skill</td><td>gadget</td><td>id</td>
+</tr>
+</thead>
+
+<tbody>
+<apex:repeat value="{! employeeList }" var="e" >
+<tr width="10%,70%,10%,10%">
+<td>{!  e.Name}</td><td>{!  e.skill_set__c}</td><td>{!  e.Gadget__r.Name }</td><td>{!  e.Id}</td>
+</tr>
+<tr></tr>
+</apex:repeat>
+</tbody>
+</table>
+
+<!--
+<apex:dataTable value="{! employeeList }" var="e">
+    <apex:column value="{! e.Name}"/> 
+    <apex:column value="{! e.skill_set__c}"/>
+    <apex:column value="{! e.gadget__c }"/>
+    <apex:column value="{! e.Id}"/>
+</apex:dataTable>
+-->
+</apex:page>

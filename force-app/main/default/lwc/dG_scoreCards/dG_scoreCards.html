@@ -1,0 +1,29 @@
+<template>
+    <lightning-card  title="Score Cards">
+
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            <lightning-layout>
+                <div style="width: 980px; padding: 8px;">
+                    <lightning-layout-item padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                            <lightning-datatable
+                                    key-field="id"
+                                    data={allParticipants.data}
+                                    columns={columns}>
+                            </lightning-datatable>
+                        </div>
+                    </lightning-layout-item>
+                </div>
+
+                <div style="width: 400px; padding: 8px;">
+                    <lightning-layout-item padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                            <c-d-g_add-new-word></c-d-g_add-new-word>
+                        </div>
+                    </lightning-layout-item>
+                </div>
+            </lightning-layout>
+        </div>
+    
+    </lightning-card>
+</template>
